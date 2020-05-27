@@ -3,34 +3,32 @@ Captcha
 
 A captcha library that generates audio and image CAPTCHAs.
 
-.. image:: https://img.shields.io/badge/donate-lepture-ff69b4.svg
-   :target: https://lepture.com/donate
-   :alt: Donate lepture
-.. image:: https://img.shields.io/badge/I0-patreon-f96854.svg
-   :target: https://patreon.com/lepture
-   :alt: Become a Patreon
-.. image:: https://travis-ci.org/lepture/captcha.svg?branch=master
-   :target: https://travis-ci.org/lepture/captcha
-.. image:: https://ci.appveyor.com/api/projects/status/amm21f13lx4wuura?svg=true
-   :target: https://ci.appveyor.com/project/lepture/captcha
-.. image:: https://coveralls.io/repos/lepture/captcha/badge.svg?branch=master
-   :target: https://coveralls.io/r/lepture/captcha
+Updates
+-------
+Updated library to to generate captchas like this in black and white.
+Then NN was trained to solve these captchas. Check it's `GitHub project <https://github.com/avk0/captcha-tensorflow.git>`_.
+
+.. image:: https://user-images.githubusercontent.com/47819971/83060284-e1e04800-a063-11ea-83d7-8ccf387cc7b8.jpg
+.. image:: https://user-images.githubusercontent.com/47819971/83060286-e278de80-a063-11ea-8504-afd1fff9a117.jpg
+
+
 
 Features
 --------
 
 1. Audio CAPTCHAs `DEMO <https://github.com/lepture/captcha/releases/download/v0.1-beta/out.wav>`_
-2. Image CAPTCHAs
+2. Example of target CAPTCHAs. This lib allows to generate such captchas in black and white.
 
-.. image:: https://cloud.githubusercontent.com/assets/290496/5213632/95e68768-764b-11e4-862f-d95a8f776cdd.png
-
+.. image:: https://user-images.githubusercontent.com/47819971/83060288-e3117500-a063-11ea-9a12-5fbde05ec098.jpg
 
 Installation
 ------------
 
 Install captcha with pip::
 
-    $ pip install captcha
+    $ git clone https://github.com/avk0/captcha.git
+    $ cd captcha
+    $ python setup.py install
 
 Usage
 -----
@@ -65,14 +63,3 @@ We can build our customized voice library with the help of espeak and ffmpeg::
 
    for i in {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,0,1,2,3,4,5,6,7,8,9}; do mkdir $ESLANG/$i; espeak -a 150 -s 100 -p 15 -v$ESLANG $i -w $ESLANG/$i/orig_default.wav; ffmpeg -i $ESLANG/$i/orig_default.wav -ar 8000 -ac 1 -acodec pcm_u8 $ESLANG/$i/default.wav; rm $ESLANG/$i/orig_default.wav; done
 
-
-Contribution
-------------
-
-We need voice wav files. The voice wav file should be in 8-bit, please keep it
-as small as possible. Name your voice file as::
-
-    {{language}}-{{character}}-{{username}}.wav
-    # exmaple: zh-1-lepture.wav
-
-TODO: we need a place to upload voice files.
